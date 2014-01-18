@@ -1,0 +1,19 @@
+index
+
+
+<h1>Crops Index</h1>
+      
+  <% @crops.each do |crop| %>
+   <div class="col-xs-12 col-sm-6 col-md-4">
+    <h3><%= crop.crop %></h3>
+    <p>
+      <strong>Family: </strong><%= crop.family %><br>
+      <strong>Greenhouse Time: </strong><%= crop.greenhouse_time %><br>
+      <strong>Maturity Time: </strong><%= crop.maturity_time %><br>
+      <strong>Notes: </strong><%= crop.notes %><br>
+    </p>
+      
+    <br />
+    </div>
+  <% end %>
+    

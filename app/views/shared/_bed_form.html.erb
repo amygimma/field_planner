@@ -1,0 +1,40 @@
+<%= form_for(@bed) do |f| %>
+
+  <div class="field">
+    <ul>
+      <li>
+        <%= f.label :bed %>
+        <%= f.text_field :bed %>
+      </li>
+      <li>
+        <%= f.label :use_frost? %>
+        <%= f.text_field :use_frost? %>
+      </li>
+      
+      <li>
+        <%= f.label :greenhouse_start %>
+        <%= f.text_field :greenhouse_start %>
+      </li>
+      
+      <li>
+        <%= f.label :greenhouse_start %>
+        <%= f.text_field :greenhouse_start %>
+      </li>
+   
+       <li>
+        <%= f.label :greenhouse_end %>
+        <%= f.text_field :greenhouse_end %>
+      </li>
+      
+      <li>
+        <%= f.label :plant_in_bed %>
+        <%= f.text_area :plant_in_bed %>
+      </li>
+      
+      <li>
+        <%= f.label :harvest %>
+        <%= f.text_area :harvest %>
+      </li>
+  </div>
+  <%= f.submit "Save", class: "btn btn-large btn-primary" %>
+<% end %>
