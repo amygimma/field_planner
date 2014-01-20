@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140118211834) do
+ActiveRecord::Schema.define(version: 20140120231926) do
+
+  create_table "beds", force: true do |t|
+    t.date     "frost_date"
+    t.date     "greenhouse_start"
+    t.date     "greenhouse_end"
+    t.date     "harvest"
+    t.date     "use_frost"
+    t.integer  "total_days"
+    t.date     "plant_date"
+    t.integer  "crops_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "crops", force: true do |t|
     t.string   "crop"
