@@ -20,9 +20,9 @@ class CropsController < ApplicationController
     
     @crop = Crop.find(params[:id])
   
-    @crop.update(params[:crop].permit(:crop, :greenhouse_time, :maturity_time, :notes, :family))
+    @crop.update(crop_params)
     
-    redirect_to recipe_show_path
+    redirect_to crops_path
   end
   
   def destroy
