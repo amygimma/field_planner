@@ -1,1 +1,27 @@
-edit
+<% provide(:title, "Edit user") %>
+<h1>Edit Crop</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@crop) do |f| %>
+
+      <%= f.label :crop %>
+      <%= f.text_field :crop %>
+
+      <%= f.label :family %>
+      <%= f.text_field :family %>
+
+      <%= f.label :greenhouse_time %>
+      <%= f.text_field :greenhouse_time %>
+      
+      <%= f.label :maturity_time %>
+      <%= f.text_field :maturity_time %>
+
+      <%= f.label :notes %>
+      <%= f.text_area :notes %>
+
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+    <% end %>
+
+  </div>
+</div>

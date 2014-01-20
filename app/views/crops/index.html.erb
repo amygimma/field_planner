@@ -1,5 +1,3 @@
-index
-
 
 <h1>Crops Index</h1>
       
@@ -13,6 +11,10 @@ index
       <strong>Notes: </strong><%= crop.notes %><br>
     </p>
       
+
+    <%= link_to "Delete", crop, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+    <%= link_to 'Edit', [:edit, crop] %>
     <br />
     </div>
   <% end %>

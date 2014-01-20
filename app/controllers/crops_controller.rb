@@ -1,8 +1,9 @@
 class CropsController < ApplicationController
-  #before_filter :authenticate_user!
+  before_filter :authenticate_user!
 
   def show
     crop_id = params["id"]
+
     @crop = Crop.find(crop_id)
   end
   
@@ -11,27 +12,41 @@ class CropsController < ApplicationController
     @crop = @user.crops.build(crop_params)
     @crop.save
     
-    redirect_to @crop
+    redirect_to crops_path
   end
   
   def update
+    crop_id = params["id"]
+    
+    @crop = Crop.find(params[:id])
+  
+    @crop.update(params[:crop].permit(:crop, :greenhouse_time, :maturity_time, :notes, :family))
+    
+    redirect_to recipe_show_path
   end
   
   def destroy
+    
+    crop_id = params["id"]
+    @crop = Crop.find(crop_id)
+    
+    Crop.destroy(crop_id)
+    
+    redirect_to crops_path
   end
     
   def index 
-    @crops = Crop.all()
+    @crops = current_user.crops.all()
   end
   
   def new
-    if not user_signed_in?
-      redirect_to new_user_session_path
-    end
     @crop = Crop.new
   end
   
   def edit
+     @user = current_user
+     @crop_id = params["id"]
+     @crop = Crop.find(params[:id])
   end
   
   private

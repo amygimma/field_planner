@@ -9,7 +9,12 @@ show
     <strong>Greenhouse Time: </strong><%= @crop.greenhouse_time %><br>
     <strong>Maturity Time: </strong><%= @crop.maturity_time %><br>
     <strong>Notes: </strong><%= @crop.notes %><br>
-  </p>
+  </p><br>
+
+<%= link_to "delete", @crop, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+   
+  <%= link_to "Edit", @crop, method: :get %>
     
   <br />
 
