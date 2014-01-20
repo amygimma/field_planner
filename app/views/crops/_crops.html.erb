@@ -1,0 +1,19 @@
+<% @crops.each do |crop| %>
+   <div class="col-xs-12 col-sm-6 col-md-4 show">
+    <h3>
+      <%= crop.crop %>  
+      <small><%= link_to "Delete", crop, method: :delete,
+                                    data: { confirm: "You sure?" } %> | 
+      <%= link_to 'Edit', [:edit, crop] %></small>
+    </h3>
+    
+    <ul>
+      <li><strong>Family: </strong><%= crop.family %></li>
+      <li><strong>Greenhouse Time: </strong><%= crop.greenhouse_time %></li>
+      <li><strong>Maturity Time: </strong><%= crop.maturity_time %></li>
+      <li><strong>Notes: </strong><%= crop.notes %></li>
+    </ul>
+      
+    <br />
+    </div>
+  <% end %>

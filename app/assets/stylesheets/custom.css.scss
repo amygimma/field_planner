@@ -4,6 +4,8 @@
 
 $grayMediumLight: #eaeaea;
 
+$textColor: #37dc74;
+
 /* universal */
 
 html {
@@ -12,6 +14,8 @@ html {
 
 body {
   padding-top: 50px;
+  background: #00782d;
+
 }
 
 section {
@@ -40,6 +44,7 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+  color: yellow;
 }
 
 h2 {
@@ -49,6 +54,10 @@ h2 {
   text-align: center;
   font-weight: normal;
   color: $grayLight;
+}
+
+h3 {
+  color: $textColor;
 }
 
 p {
@@ -128,4 +137,52 @@ footer {
   margin: 1em;
 }
  
+ /* test */
  
+ /* .pull-left {
+  background: yellow;
+  } */
+  
+ .shared {
+    padding-left: 3em;
+    overflow:hidden;
+   /* background: green; */
+ }
+ 
+ .show {
+    border-bottom: 1px solid $textColor;
+    padding: 1em 0 0 0.5em;
+    &:last-child {
+      border-bottom: none;
+    }
+    ul li {
+      list-style: none;
+      display: inline-block;
+      padding-right: 2em;
+      color: $white;
+    }
+  }
+  
+  small {
+    padding-left: 2em;
+    a {
+      color: yellow;
+    }
+  }
+  
+  
+  /* form */
+  
+  .new_form ul li{
+    list-style: none;
+    color: white;
+  }
+  
+  input, text_field, textarea {
+     color: yellow;
+    
+  }
+  
+  input {
+  height: auto !important;
+  }

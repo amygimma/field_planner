@@ -1,29 +1,41 @@
-new
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-4 pull-left new_form">
+  <h3> Add a Crop</h3>
+  <%= form_for(@crop) do |f| %>
 
-<%= form_for(@crop) do |f| %>
+    <div class="field">
+      <ul>
+        <li>
+          <%= f.label :crop %>
+          <%= f.text_field :crop %>
+        </li>
+        <li>
+          <%= f.label :family %>
+          <%= f.text_field :family %>
+        </li>
+        <li>
+          <%= f.label :greenhouse_time %>
+          <%= f.text_field :greenhouse_time %>
+        </li>
+        <li>
+          <%= f.label :maturity_time %>
+          <%= f.text_field :maturity_time %>
+        </li>
+        <li>
+          <%= f.label :notes %>
+          <%= f.text_area :notes %>
+        </li>
+    </div>
+    <%= f.submit "Save", class: "btn btn-large btn-primary" %>
+  <% end %>
 
-  <div class="field">
-    <ul>
-      <li>
-        <%= f.label :crop %>
-        <%= f.text_field :crop %>
-      </li>
-      <li>
-        <%= f.label :family %>
-        <%= f.text_field :family %>
-      </li>
-      <li>
-        <%= f.label :greenhouse_time %>
-        <%= f.text_field :greenhouse_time %>
-      </li>
-      <li>
-        <%= f.label :maturity_time %>
-        <%= f.text_field :maturity_time %>
-      </li>
-      <li>
-        <%= f.label :notes %>
-        <%= f.text_area :notes %>
-      </li>
   </div>
-  <%= f.submit "Save", class: "btn btn-large btn-primary" %>
-<% end %>
+
+  <div class="col-xs-12 col-sm-12 col-md-8 shared">
+
+    <%= render 'crops' %>
+    
+
+  </div>
+  
+</div>

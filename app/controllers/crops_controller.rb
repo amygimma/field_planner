@@ -3,8 +3,8 @@ class CropsController < ApplicationController
 
   def show
     crop_id = params["id"]
-
     @crop = Crop.find(crop_id)
+    
   end
   
   def create
@@ -35,12 +35,14 @@ class CropsController < ApplicationController
     redirect_to crops_path
   end
     
-  def index 
+  def index
+    @crop = Crop.new 
     @crops = current_user.crops.all()
   end
   
   def new
     @crop = Crop.new
+    @crops = current_user.crops.all()
   end
   
   def edit
