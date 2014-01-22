@@ -46,6 +46,7 @@ class CropsController < ApplicationController
   def index
     @crop = Crop.new 
     @crops = current_user.crops.all()
+    @beds = crops.bed.bed
   end
   
   def new

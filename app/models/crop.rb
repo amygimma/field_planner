@@ -3,6 +3,6 @@ class Crop < ActiveRecord::Base
   
   belongs_to :user
   has_many :beds
-  before_save { self.crop = crop.capitalize }
+  #before_save { unless self.crop= nil self.crop = crop.capitalize }
 
 end
