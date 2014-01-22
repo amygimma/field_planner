@@ -5,9 +5,9 @@
     <h3>
       <%= bed.bed %> 
     </h3>
-    crop 
-    
-   
+    <% if bed.crop != nil %>
+    <%= bed.crop.crop %>
+    <% end %>
     <ul>
       <li><strong>Plant on frost date: </strong><%= bed.frost_date %></li>
     </ul> 

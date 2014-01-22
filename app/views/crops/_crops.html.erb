@@ -16,7 +16,34 @@
       <li><strong>Notes: </strong><%= crop.notes %></li>
     </ul>
     
+
+      <table border="1">
+        <tr>
+          <td>bed</td>
+          <td>frost date</td>
+          <td>plant date</td>
+          <td>harvest date</td>
+
+        </tr>
+        
+      <% crop.beds.each do |bed| %>
+        <tr>
+          <td><%= bed.bed %></td>
+          <td><%= bed.frost_date %></td>
+          <td><%= bed.plant_date %></td>
+          <td><%= bed.harvest %></td>
+
+        </tr> 
+      <% end %>
+          
+    </table>
+
+        
+    
  
     <br />
     </div>
   <% end %>
+
+
+

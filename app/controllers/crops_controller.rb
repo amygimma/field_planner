@@ -14,10 +14,8 @@ class CropsController < ApplicationController
     
     crop_id = params["id"]
     
-
-    
-    @bed = @crop.beds.build(bed_params)
-    @bed.save
+    #@bed = @crop.beds.build(bed_params)
+   # @bed.save
     
     
     redirect_to crops_path
@@ -46,7 +44,7 @@ class CropsController < ApplicationController
   def index
     @crop = Crop.new 
     @crops = current_user.crops.all()
-    @beds = crops.bed.bed
+
   end
   
   def new
@@ -64,7 +62,7 @@ class CropsController < ApplicationController
   
   private
     def crop_params  
-      params.require(:crop).permit(:crop, :id, :family, :greenhouse_time, :maturity_time, :notes, beds_attributes: [:bed, :frost_date, :crop_id])
+      params.require(:crop).permit(:crop, :id, :family, :greenhouse_time, :maturity_time, :notes, beds_attributes: [:bed, :frost_date, :greenhouse_start, :greenhouse_end, :harvest, :use_frost, :total_days, :plant_date, :crops_id])
     end
 
 end

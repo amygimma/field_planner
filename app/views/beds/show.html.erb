@@ -2,13 +2,12 @@ show
 
 <div class="col-xs-12 col-sm-6 col-md-4 show">
   <h3>
-    <%= @bed.bed %>  
-  </h3>
-   <h3>
-    <%= @crop %>  
+    <%= @bed.bed %>  <%= @crop.crop %>  
   </h3>
   <ul>
-    <li><strong>Plant on frost date: </strong><%= @bed.frost_date %></li>
-
-  <br />
-</div>
+    <li><strong>Frost date: </strong><%= @bed.frost_date %></li>
+    <li><strong>Plant date: </strong><%= @bed.plant_date %></li>
+    <li><strong>Harvest date: </strong><%= @bed.harvest %></li>
+  </ul>
+  
+  
