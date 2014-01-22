@@ -3,14 +3,22 @@ class CropsController < ApplicationController
 
   def show
     crop_id = params["id"]
-    @crop = Crop.find(crop_id)
-    
+    @crop = Crop.find(crop_id) 
+    @bed = Bed.new
   end
   
   def create
     @user = current_user
     @crop = @user.crops.build(crop_params)
     @crop.save
+    
+    crop_id = params["id"]
+    
+
+    
+    @bed = @crop.beds.build(bed_params)
+    @bed.save
+    
     
     redirect_to crops_path
   end
@@ -43,6 +51,8 @@ class CropsController < ApplicationController
   def new
     @crop = Crop.new
     @crops = current_user.crops.all()
+    @bed = Bed.new
+
   end
   
   def edit
@@ -53,7 +63,7 @@ class CropsController < ApplicationController
   
   private
     def crop_params  
-      params.require(:crop).permit(:crop, :family, :greenhouse_time, :maturity_time, :notes)
+      params.require(:crop).permit(:crop, :id, :family, :greenhouse_time, :maturity_time, :notes, beds_attributes: [:bed, :frost_date, :crop_id])
     end
 
 end

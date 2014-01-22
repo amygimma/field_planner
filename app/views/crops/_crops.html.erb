@@ -4,7 +4,9 @@
       <%= crop.crop %>  
       <small><%= link_to "Delete", crop, method: :delete,
                                     data: { confirm: "You sure?" } %> | 
-      <%= link_to 'Edit', [:edit, crop] %></small>
+      <%= link_to 'Edit', [:edit, crop] %> | 
+      
+      <%= link_to 'Add bed', crop_path(crop) %></small> 
     </h3>
     
     <ul>

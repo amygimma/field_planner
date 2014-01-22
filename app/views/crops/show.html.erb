@@ -1,21 +1,29 @@
-show
+show crop
 
 
-<div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
 
-  <h3><%= @crop.crop %></h3>
-  <p>
-    <strong>Family: </strong><%= @crop.family %><br>
-    <strong>Greenhouse Time: </strong><%= @crop.greenhouse_time %><br>
-    <strong>Maturity Time: </strong><%= @crop.maturity_time %><br>
-    <strong>Notes: </strong><%= @crop.notes %><br>
-  </p><br>
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6">
 
-<%= link_to "delete", @crop, method: :delete,
-                                  data: { confirm: "You sure?" } %>
-   
-  <%= link_to "Edit", @crop, method: :get %>
-    
-  <br />
+    <h3><%= @crop.crop %></h3>
+    <p>
+      <strong>Family: </strong><%= @crop.family %><br>
+      <strong>Greenhouse Time: </strong><%= @crop.greenhouse_time %><br>
+      <strong>Maturity Time: </strong><%= @crop.maturity_time %><br>
+      <strong>Notes: </strong><%= @crop.notes %><br>
+    </p><br>
+
+  <%= link_to "delete", @crop, method: :delete,
+                                    data: { confirm: "You sure?" } %>
+     
+    <%= link_to "Edit", @crop, method: :get %>
+      
+    <br />
+
+  </div>
+  
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6">
+    <%= render 'beds/new_bed' %>
+  </div>
 
 </div>
