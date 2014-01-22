@@ -3,7 +3,7 @@ show crop
 
 
 <div class="row">
-  <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6">
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 show">
 
     <h3><%= @crop.crop %></h3>
     <p>
@@ -12,12 +12,12 @@ show crop
      
       <%= link_to "Edit", @crop, method: :get %>
     </p>
-    <p>
-      <strong>Family: </strong><%= @crop.family %><br>
-      <strong>Greenhouse Time: </strong><%= @crop.greenhouse_time %><br>
-      <strong>Maturity Time: </strong><%= @crop.maturity_time %><br>
-      <strong>Notes: </strong><%= @crop.notes %><br>
-    </p><br>
+    <ul>
+      <li><strong>Family: </strong><%= @crop.family %><br></li>
+      <li><strong>Greenhouse Time: </strong><%= @crop.greenhouse_time %><br></li>
+      <li><strong>Maturity Time: </strong><%= @crop.maturity_time %><br></li>
+      <li><strong>Notes: </strong><%= @crop.notes %><br></li>
+    <ul><br>
     
       
       

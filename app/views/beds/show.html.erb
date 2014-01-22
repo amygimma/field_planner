@@ -1,13 +1,15 @@
 show
-
-<div class="col-xs-12 col-sm-6 col-md-4 show">
+<%= link_to "Back to crops page", crops_path %>
+<div class="col-xs-12 col-sm-6 col-md-4">
   <h3>
     <%= @bed.bed %>  <%= @crop.crop %>  
   </h3>
-  <ul>
-    <li><strong>Frost date: </strong><%= @bed.frost_date %></li>
-    <li><strong>Plant date: </strong><%= @bed.plant_date %></li>
-    <li><strong>Harvest date: </strong><%= @bed.harvest %></li>
-  </ul>
+  <div class="show">
+    <ul>
+      <li><strong>Frost date: </strong><%= @bed.frost_date %></li>
+      <li><strong>Plant date: </strong><%= @bed.plant_date %></li>
+      <li><strong>Harvest date: </strong><%= @bed.harvest %></li>
+    </ul>
+  </div>
   
   

@@ -7,6 +7,9 @@ $grayMediumLight: #eaeaea;
 $textColor: #37dc74;
 
 /* universal */
+a {
+  color: yellow;
+}
 
 html {
   overflow-y: scroll;
@@ -186,3 +189,28 @@ footer {
   input {
   height: auto !important;
   }
+  
+    /* table */
+    
+    
+    table {
+      border: 1px solid $textColor;
+      radius: 5px;
+      tr {
+        th {
+        background: $textColor;
+        color: #00782d;
+        padding: 0.5em;
+        border: 2px solid white;
+        }
+        td {
+          padding: 1em;
+          color: white;
+        }
+      }
+    }
+      
+    
+    
+    
+    
