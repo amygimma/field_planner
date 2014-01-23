@@ -15,6 +15,3 @@ class CreateBeds < ActiveRecord::Migration
   end
 end
 
- t.date :beds, :frost_date,:greenhouse_start, :greenhouse_end, :harvest, :use_frost, :total_days
-      t.date :plant_date
-      t.integer :crops_id
