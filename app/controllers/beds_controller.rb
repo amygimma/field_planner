@@ -13,9 +13,16 @@ class BedsController < ApplicationController
     
     @crop = Crop.find(crop_id) 
     @bed = @crop.beds.build(bed_params)
-    @bed.save
+    @bed.save!
+    if @bed.harvest
+      @bed.plant_date ||= @bed.harvest - (@crop.maturity_time).days
+    elsif @bed.frost_date
+      @bed.plant_date ||= @bed.frost_date + (@crop.greenhouse_time).days
+    end
+      @bed.greenhouse_start  ||= @bed.plant_date - (@crop.greenhouse_time).days
+      @bed.greenhouse_end = @bed.plant_date
+      @bed.harvest ||= @bed.plant_date + (@crop.maturity_time).days
     
-    @bed.greenhouse_start  = @bed.plant_date - (@crop.greenhouse_time).days
     @bed.save
     redirect_to bed_path(@bed)
   end
