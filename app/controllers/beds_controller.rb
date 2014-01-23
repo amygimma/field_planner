@@ -17,7 +17,7 @@ class BedsController < ApplicationController
     if @bed.harvest
       @bed.plant_date ||= @bed.harvest - (@crop.maturity_time).days
     elsif @bed.frost_date
-      @bed.plant_date ||= @bed.frost_date + (@crop.greenhouse_time).days
+      @bed.plant_date ||= @bed.frost_date
     end
       @bed.greenhouse_start  ||= @bed.plant_date - (@crop.greenhouse_time).days
       @bed.greenhouse_end = @bed.plant_date
