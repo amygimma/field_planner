@@ -1,5 +1,7 @@
 FieldPlanner::Application.routes.draw do
-  resources :beds
+  resources :beds do
+    resources :crops
+  end
   resources :crops
   devise_for :users
   root "static_pages#home"

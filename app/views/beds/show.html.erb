@@ -2,13 +2,19 @@ show
 <%= link_to "Back to crops page", crops_path %>
 <div class="col-xs-12 col-sm-6 col-md-4">
   <h3>
-    <%= @bed.bed %>  <%= @crop.crop %>  
+    <%= @bed.bed %>  <%= @crop.crop %> 
+    <small><%= link_to "Delete", @bed, method: :delete,
+                                    data: { confirm: "You sure?" } %> | 
+    <%= link_to 'Edit', [:edit, @bed] %> 
   </h3>
   <div class="show">
     <ul>
       <li><strong>Frost date: </strong><%= @bed.frost_date %></li>
+       <li><strong>greenhouse start: </strong><%= @bed.greenhouse_start %></li>
+      <li><strong>greenhouse end: </strong><%= @bed.greenhouse_end %></li>
       <li><strong>Plant date: </strong><%= @bed.plant_date %></li>
       <li><strong>Harvest date: </strong><%= @bed.harvest %></li>
+      
     </ul>
   </div>
   

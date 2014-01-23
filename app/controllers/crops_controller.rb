@@ -14,10 +14,6 @@ class CropsController < ApplicationController
     
     crop_id = params["id"]
     
-    #@bed = @crop.beds.build(bed_params)
-   # @bed.save
-    
-    
     redirect_to crops_path
   end
   

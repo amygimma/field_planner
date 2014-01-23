@@ -4,7 +4,6 @@ class BedsController < ApplicationController
     bed_id = params["id"]
     @bed = Bed.find(bed_id) 
     crop_id = @bed.crop_id
-
     @crop = Crop.find(crop_id)
   end
 
@@ -31,23 +30,51 @@ class BedsController < ApplicationController
   end
 
   def destroy
+    bed_id = params["id"]
+    @bed = Bed.find(bed_id)
+    
+    Bed.destroy(bed_id)
+    
+    redirect_to root_path
   end
 
   def index
     @beds = Bed.all()
-    Crop.find(crop_id)
+    #@start = @beds.greenhouse_start.sort.first
+    @gs = greenhouse_sort
+    @dash = "-"
   end
 
   def new
-   
-
-
   end
 
   def edit
   end
   
-
+  def greenhouse_starts
+    @beds = Bed.all()
+    @beds.map do |bed|
+      @starts ||= []
+      next if bed.greenhouse_start == nil
+      @starts << bed.greenhouse_start.to_date
+    end
+    @starts
+  end
+  
+  def generate_greenhouse_days
+    @gs = greenhouse_sort
+    @n = first_day
+    100.times do |day|
+      @n ||= @n + 1.day
+    end
+  end
+  
+  def greenhouse_sort
+    @gs = greenhouse_starts.sort
+    @first_day = @gs.first
+    @last_day = @gs.last
+    @n = @first_day
+  end
   private
     def bed_params  
       params.require(:bed).permit(:bed, :frost_date, :greenhouse_start, :greenhouse_end, :harvest, :use_frost, :total_days, :plant_date, :crops_id)
