@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :crops
+  has_many :beds, through: :crops
 
 
   # Include default devise modules. Others available are:

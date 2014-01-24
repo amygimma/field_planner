@@ -38,8 +38,9 @@ class CropsController < ApplicationController
   end
     
   def index
-    @crop = Crop.new 
+    @crop = Crop.new
     @crops = current_user.crops.all()
+    @beds = Bed.all()
 
   end
   
@@ -56,9 +57,11 @@ class CropsController < ApplicationController
      @crop = Crop.find(params[:id])
   end
   
+  
+  
   private
     def crop_params  
-      params.require(:crop).permit(:crop, :id, :family, :greenhouse_time, :maturity_time, :notes, beds_attributes: [:bed, :frost_date, :greenhouse_start, :greenhouse_end, :harvest, :use_frost, :total_days, :plant_date, :crops_id])
+      params.require(:crop).permit(:crop, :id, :family, :greenhouse_time, :maturity_time, :notes, beds_attributes: [:bed, :user_id, :frost_date, :greenhouse_start, :greenhouse_end, :harvest, :use_frost, :total_days, :plant_date, :crops_id])
     end
 
 end

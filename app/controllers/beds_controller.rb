@@ -1,5 +1,7 @@
 class BedsController < ApplicationController
-#needs refacroting, make helpers for crop_id and greenhouse_start/end, etc"
+   before_filter :authenticate_user!
+#needs refactoring, make helpers for crop_id and greenhouse_start/end, etc"
+
   def show 
     bed_id = params["id"]
     @bed = Bed.find(bed_id) 
@@ -13,6 +15,8 @@ class BedsController < ApplicationController
     @crop = Crop.find(crop_id) 
     @bed = @crop.beds.build(bed_params)
     @bed.save!
+    @bed.user_id = @crop.user_id
+    
     if @bed.harvest
       @bed.plant_date ||= @bed.harvest - (@crop.maturity_time).days
     elsif @bed.frost_date
@@ -43,6 +47,7 @@ class BedsController < ApplicationController
     #@start = @beds.greenhouse_start.sort.first
     @gs = greenhouse_sort
     @dash = "-"
+
   end
 
   def new
@@ -75,8 +80,15 @@ class BedsController < ApplicationController
     @last_day = @gs.last
     @n = @first_day
   end
+  
+  def crop_name
+    crop_id = @bed.crop_id
+    crop = Crop.find(crop_id)
+    @crop = crop.crop
+  end
+  
   private
     def bed_params  
-      params.require(:bed).permit(:bed, :frost_date, :greenhouse_start, :greenhouse_end, :harvest, :use_frost, :total_days, :plant_date, :crops_id)
+      params.require(:bed).permit(:bed, :user_id, :frost_date, :greenhouse_start, :greenhouse_end, :harvest, :use_frost, :total_days, :plant_date, :crops_id)
     end
 end

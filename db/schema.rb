@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140121195038) do
+ActiveRecord::Schema.define(version: 20140124022442) do
 
   create_table "beds", force: true do |t|
     t.date     "frost_date"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20140121195038) do
     t.datetime "updated_at"
     t.string   "bed"
     t.integer  "crop_id"
+    t.integer  "user_id"
   end
 
   add_index "beds", ["bed"], name: "index_beds_on_bed"
