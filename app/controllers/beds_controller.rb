@@ -1,5 +1,6 @@
 class BedsController < ApplicationController
-   before_filter :authenticate_user!
+  before_filter :authenticate_user!
+  include BedsHelper
 #needs refactoring, make helpers for crop_id and greenhouse_start/end, etc"
 
   def show 
@@ -12,23 +13,15 @@ class BedsController < ApplicationController
   def create
     crop_id = params["crop_id"]
     
-    @crop = Crop.find(crop_id) 
+    @crop = current_user.crops.find(crop_id) 
     @bed = @crop.beds.build(bed_params)
     @bed.save!
-    @bed.user_id = @crop.user_id
-    
-    if @bed.harvest
-      @bed.plant_date ||= @bed.harvest - (@crop.maturity_time).days
-    elsif @bed.frost_date
-      @bed.plant_date ||= @bed.frost_date
-    end
-      @bed.greenhouse_start  ||= @bed.plant_date - (@crop.greenhouse_time).days
-      @bed.greenhouse_end = @bed.plant_date
-      @bed.harvest ||= @bed.plant_date + (@crop.maturity_time).days
-    
-    @bed.save
+  
+    create_dates
     redirect_to bed_path(@bed)
   end
+
+ 
 
   def update
   end
@@ -42,13 +35,14 @@ class BedsController < ApplicationController
     redirect_to root_path
   end
 
+
   def index
-    @beds = Bed.all()
+    @beds = current_user.beds.all()
     #@start = @beds.greenhouse_start.sort.first
     @gs = greenhouse_sort
     @dash = "-"
-
   end
+
 
   def new
   end
@@ -56,36 +50,6 @@ class BedsController < ApplicationController
   def edit
   end
   
-  def greenhouse_starts
-    @beds = Bed.all()
-    @beds.map do |bed|
-      @starts ||= []
-      next if bed.greenhouse_start == nil
-      @starts << bed.greenhouse_start.to_date
-    end
-    @starts
-  end
-  
-  def generate_greenhouse_days
-    @gs = greenhouse_sort
-    @n = first_day
-    100.times do |day|
-      @n ||= @n + 1.day
-    end
-  end
-  
-  def greenhouse_sort
-    @gs = greenhouse_starts.sort
-    @first_day = @gs.first
-    @last_day = @gs.last
-    @n = @first_day
-  end
-  
-  def crop_name
-    crop_id = @bed.crop_id
-    crop = Crop.find(crop_id)
-    @crop = crop.crop
-  end
   
   private
     def bed_params  
