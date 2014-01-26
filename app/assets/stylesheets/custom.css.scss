@@ -3,7 +3,6 @@
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
-
 $textColor: #37dc74;
 
 /* universal */
@@ -187,8 +186,8 @@ footer {
     color: white;
   }
   
-  input, text_field, textarea {
-     color: yellow;
+  input, text_field {
+     color: black;
     
   }
   
@@ -216,7 +215,15 @@ footer {
       }
     }
       
+  .sch_background {
+    background: $textColor;
+    color: #00782d;
+    opacity: 0.6;
+  }
     
-    
-    
+  .crop_label {
+    padding: 0;
+    font-size: 0.75em;
+    text-align: center;
+  }
     
