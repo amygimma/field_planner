@@ -1,7 +1,6 @@
 class BedsController < ApplicationController
   before_filter :authenticate_user!
   include BedsHelper
-#needs refactoring, make helpers for crop_id and greenhouse_start/end, etc"
 
   def show 
     bed_id = params["id"]
@@ -17,7 +16,7 @@ class BedsController < ApplicationController
     @bed = @crop.beds.build(bed_params)
     @bed.save!
   
-    create_dates
+    create_gh_dates
     redirect_to bed_path(@bed)
   end
 
@@ -38,9 +37,9 @@ class BedsController < ApplicationController
 
   def index
     @beds = current_user.beds.all()
-    #@start = @beds.greenhouse_start.sort.first
     @gs = greenhouse_sort
     @dash = "-"
+    
   end
 
 
@@ -53,6 +52,6 @@ class BedsController < ApplicationController
   
   private
     def bed_params  
-      params.require(:bed).permit(:bed, :user_id, :frost_date, :greenhouse_start, :greenhouse_end, :harvest, :use_frost, :total_days, :plant_date, :crops_id)
+      params.require(:bed).permit(:bed, :user_id, :frost_date, :greenhouse_start, :greenhouse_end, :harvest, :use_frost, :total_days, :plant_date, :crop_id)
     end
 end

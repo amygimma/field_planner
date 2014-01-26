@@ -1,4 +1,5 @@
 class CropsController < ApplicationController
+  include CropsHelper
   before_filter :authenticate_user!
 
   def show
@@ -41,7 +42,12 @@ class CropsController < ApplicationController
     @crop = Crop.new
     @crops = current_user.crops.all()
     @beds = Bed.all()
+    #
+    @beds = current_user.beds.all()
+    @gs = greenhouse_sort
+    @dash = "-"
 
+    
   end
   
   def new
@@ -61,7 +67,7 @@ class CropsController < ApplicationController
   
   private
     def crop_params  
-      params.require(:crop).permit(:crop, :id, :family, :greenhouse_time, :maturity_time, :notes, beds_attributes: [:bed, :user_id, :frost_date, :greenhouse_start, :greenhouse_end, :harvest, :use_frost, :total_days, :plant_date, :crops_id])
+      params.require(:crop).permit(:crop, :id, :family, :greenhouse_time, :maturity_time, :notes, beds_attributes: [:bed, :user_id, :frost_date, :greenhouse_start, :greenhouse_end, :harvest, :use_frost, :total_days, :plant_date, :crop_id])
     end
 
 end

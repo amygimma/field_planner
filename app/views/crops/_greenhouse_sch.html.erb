@@ -4,7 +4,6 @@
   <tr>
     <th><%= Bed %></th>
     <th><%= Crop %></th>
-    <th>Family</th>
     <th><%= @first_day %></th>
     <% 100.times do |day| %>
         <% @next ||= @first_day %>
@@ -18,7 +17,6 @@
           <tr>
             <td><%= bed.bed %></td>
             <td><%= current_user.crops.find(bed.crop_id).crop %></td> 
-            <td><%= current_user.crops.find(bed.crop_id).family %></td> 
             <% 100.times do |day| %>
               <% @next ||= @first_day %>
               <% @next = @next + 1.day %>

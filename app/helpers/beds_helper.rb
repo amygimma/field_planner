@@ -1,5 +1,5 @@
 module BedsHelper
-   def create_dates
+   def create_gh_dates
     crop_id = params["crop_id"]
     
     @crop = current_user.crops.find(crop_id) 
@@ -44,8 +44,8 @@ module BedsHelper
   end
   
   def crop_name
-    crop_id = @bed.crop_id
-    crop = Crop.find(crop_id)
-    @crop = crop.crop
+	id = params["id"]
+	bed = current_user.beds.find(id)
+    @crop = current_user.crops.find(crop_id) 
   end
 end
