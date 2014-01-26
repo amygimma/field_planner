@@ -8,28 +8,30 @@
 
     <th><%= @first_field_day %></th>
     <% 150.times do |day| %>
-        <% @next ||= @first_field_day %>
-        <th><%= @next = @next += 1 %></th>
+        <% @fnext ||= @first_field_day %>
+        <th><%= @fnext = @fnext += 1 %></th>
     <% end %>
-    <% @next = @first_field_day -1.day %>
+    <% @fnext = @first_field_day -1.day %>
   </tr>
 
  <% @beds.each do |bed| %>
     <% next if bed.plant_date == nil %>
+    <%= @crop = current_user.crops.find(bed.crop_id) %>
+
         <tr>
           <td><%= bed.bed %></td>
-          <td><%= current_user.crops.find(bed.crop_id).crop %></td> 
-          <td><%= current_user.crops.find(bed.crop_id).family %></td> 
+          <td><%= @crop.crop %></td> 
+          <td><%= @crop.family %></td> 
           <% 150.times do |day| %>
-            <% @next ||= @first_field_day %>
-            <% @next = @next + 1.day %>
-            <% if bed.plant_date == @next or bed.harvest == @next %>
+            <% @fnext ||= @first_field_day %>
+            <% @fnext = @fnext + 1.day %>
+            <% if bed.plant_date == @fnext or bed.harvest == @fnext %>
               <td><%= bed.bed %></td>
             <% else %>
               <td><%= @dash %></td>
             <% end %>
           <% end %>
-            <% @next = @first_field_day - 1.day %>   
+            <% @fnext = @first_field_day - 1.day %>   
         <tr> 
   <% end %>
   
