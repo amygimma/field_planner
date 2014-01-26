@@ -1,10 +1,9 @@
 module BedsHelper
+
    def create_gh_dates
     crop_id = params["crop_id"]
-    
     @crop = current_user.crops.find(crop_id) 
-
-     if @bed.harvest
+    if @bed.harvest
       @bed.plant_date ||= @bed.harvest - (@crop.maturity_time).days
     elsif @bed.frost_date
       @bed.plant_date ||= @bed.frost_date
@@ -12,14 +11,23 @@ module BedsHelper
       @bed.greenhouse_start  ||= @bed.plant_date - (@crop.greenhouse_time).days
       @bed.greenhouse_end = @bed.plant_date
       @bed.harvest ||= @bed.plant_date + (@crop.maturity_time).days
-    
     @bed.save
-
   end
 
-    def greenhouse_starts
-    @beds = current_user.beds.all()
+  def greenhouse_sort
+  	#@gs ||= []
+  	if @beds == []
+		@gs = [0000-00-00]
+   	else
+    @gs = greenhouse_starts.sort
+    @first_day = @gs.first
+    @last_day = @gs.last
+    @n = @first_day
+end
+  end
 
+  def greenhouse_starts
+    @beds = current_user.beds.all()
     @beds.map do |bed|
       @starts ||= []
       next if bed.greenhouse_start == nil
@@ -28,24 +36,26 @@ module BedsHelper
     @starts
   end
   
-  def generate_greenhouse_days
-    @gs = greenhouse_sort
-    @n = first_day
-    100.times do |day|
-      @n ||= @n + 1.day
+
+  def field_sort
+  	#@fs ||= []
+    if @beds == []
+    	@fs = [0000-00-00]
+   	else
+   	@fs = field_starts.sort
+    @first_field_day = @fs.first
+    @fn = @first_field_day
+   	end
+  end
+
+  def field_starts
+    @fbeds = current_user.beds.all()
+    @fbeds.map do |bed|
+      @fstarts ||= []
+      next if bed.plant_date == nil
+      @fstarts << bed.plant_date.to_date
     end
+    @fstarts
   end
-  
-  def greenhouse_sort
-    @gs = greenhouse_starts.sort
-    @first_day = @gs.first
-    @last_day = @gs.last
-    @n = @first_day
-  end
-  
-  def crop_name
-	id = params["id"]
-	bed = current_user.beds.find(id)
-    @crop = current_user.crops.find(crop_id) 
-  end
+
 end

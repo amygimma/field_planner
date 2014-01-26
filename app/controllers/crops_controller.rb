@@ -39,15 +39,11 @@ class CropsController < ApplicationController
   end
     
   def index
+    redirect_to crops_path if not 
     @crop = Crop.new
     @crops = current_user.crops.all()
     @beds = Bed.all()
-    #
-    @beds = current_user.beds.all()
-    @gs = greenhouse_sort
-    @dash = "-"
-
-    
+    redirect_to crops_path if @beds.nil?
   end
   
   def new

@@ -37,9 +37,10 @@ class BedsController < ApplicationController
 
   def index
     @beds = current_user.beds.all()
-    @gs = greenhouse_sort
+    @beds ||= []
+    greenhouse_sort
     @dash = "-"
-    
+    field_sort
   end
 
 
