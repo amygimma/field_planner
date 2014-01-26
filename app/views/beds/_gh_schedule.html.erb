@@ -1,6 +1,6 @@
 
 <table>
-  <h1>Greenhouse Schedule<h2>
+  <h1>Greenhouse Calendar<h2>
   <tr>
     <th>Bed</th>
     <th>Crop</th>
@@ -15,18 +15,15 @@
 
    <% @beds.each do |bed| %>
       <% next if bed.greenhouse_start == nil %>
-          <% @crop = current_user.crops.find(bed.crop_id) %>
           <tr>
             <td><%= bed.bed %></td>
-            <td><%= @crop.crop %></td> 
-            <td><%= @crop.family %></td> 
+            <td><%= current_user.crops.find(bed.crop_id).crop %></td> 
+            <td><%= current_user.crops.find(bed.crop_id).family %></td> 
             <% 100.times do |day| %>
               <% @next ||= @first_day %>
               <% @next = @next + 1.day %>
               <% if bed.greenhouse_start == @next or bed.greenhouse_end == @next %>
-                <td><div class="sch_background crop_label"><%= @crop.crop %></div></td>
-              <% elsif bed.greenhouse_start <= @next and bed.greenhouse_end >= @next %>
-                 <td><div class="sch_background crop_label"><%= @bed.bed %></div></td>
+                <td><%= bed.bed %></td>
               <% else %>
                 <td><%= @dash %></td>
               <% end %>
@@ -39,7 +36,5 @@
           <tr> 
     <% end %>
 </table>
-
-<br />
 
 

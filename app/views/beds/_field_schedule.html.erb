@@ -1,6 +1,6 @@
 
 <table>
-  <h1>Field Schedule<h2>
+  <h1>Field Calendar<h2>
   <tr>
     <th>Bed</th>
     <th>Crop</th>
@@ -8,31 +8,28 @@
 
     <th><%= @first_field_day %></th>
     <% 150.times do |day| %>
-        <% @fnext ||= @first_field_day %>
-        <th><%= @fnext = @fnext += 1 %></th>
+        <% @next ||= @first_field_day %>
+        <th><%= @next = @next += 1 %></th>
     <% end %>
-    <% @fnext = @first_field_day -1.day %>
+    <% @next = @first_field_day -1.day %>
   </tr>
 
  <% @beds.each do |bed| %>
     <% next if bed.plant_date == nil %>
-        <% @crop = current_user.crops.find(bed.crop_id) %>
         <tr>
           <td><%= bed.bed %></td>
           <td><%= current_user.crops.find(bed.crop_id).crop %></td> 
           <td><%= current_user.crops.find(bed.crop_id).family %></td> 
           <% 150.times do |day| %>
-            <% @fnext ||= @first_field_day %>
-            <% @fnext = @fnext + 1.day %>
-            <% if bed.plant_date == @fnext or bed.harvest == @fnext %>
-                <td class="sch_background crop_label"><%= @crop.crop %></td>
-              <% elsif bed.plant_date <= @fnext and bed.harvest >= @fnext %>
-                <td class="sch_background"><%= bed.bed %></td>
-              <% else %>
-                <td><%= @dash %></td>
-              <% end %>
+            <% @next ||= @first_field_day %>
+            <% @next = @next + 1.day %>
+            <% if bed.plant_date == @next or bed.harvest == @next %>
+              <td><%= bed.bed %></td>
+            <% else %>
+              <td><%= @dash %></td>
+            <% end %>
           <% end %>
-            <% @fnext = @first_field_day - 1.day %>   
+            <% @next = @first_field_day - 1.day %>   
         <tr> 
   <% end %>
   
