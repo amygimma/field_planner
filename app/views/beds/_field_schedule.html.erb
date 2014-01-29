@@ -16,7 +16,7 @@
 
  <% @beds.each do |bed| %>
     <% next if bed.plant_date == nil %>
-    <%= @crop = current_user.crops.find(bed.crop_id) %>
+    <% @crop = current_user.crops.find(bed.crop_id) %>
 
         <tr>
           <td><%= bed.bed %></td>

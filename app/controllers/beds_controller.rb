@@ -23,13 +23,16 @@ class BedsController < ApplicationController
  
 
   def update
+    @bed = current_user.beds.find(params[:id])
+    @bed.update(bed_params)
+    redirect_to crops_path
   end
 
   def destroy
     bed_id = params["id"]
-    @bed = Bed.find(bed_id)
+    @bed = current_user.beds.find(bed_id)
     
-    Bed.destroy(bed_id)
+    Bed.destroy(@bed)
     
     redirect_to root_path
   end
@@ -48,6 +51,8 @@ class BedsController < ApplicationController
   end
 
   def edit
+    @bed = params["id"]
+    @bed= current_user.beds.find(params[:id])
   end
   
   

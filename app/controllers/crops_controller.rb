@@ -4,8 +4,8 @@ class CropsController < ApplicationController
 
   def show
     crop_id = params["id"]
-    @crop = Crop.find(crop_id) 
-    @bed = Bed.new
+    @crop = current_user.crops.find(crop_id) 
+    @bed = current_user.beds.new
   end
   
   def create
@@ -20,11 +20,8 @@ class CropsController < ApplicationController
   
   def update
     crop_id = params["id"]
-    
-    @crop = Crop.find(params[:id])
-  
-    @crop.update(crop_params)
-    
+    @crop = current_user.crops.find(params[:id])
+    @crop.update(crop_params) 
     redirect_to crops_path
   end
   
@@ -56,7 +53,7 @@ class CropsController < ApplicationController
   def edit
      @user = current_user
      @crop_id = params["id"]
-     @crop = Crop.find(params[:id])
+     @crop = current_user.crops.find(params[:id])
   end
   
   

@@ -1,2 +1,42 @@
-<h1>Beds#edit</h1>
-<p>Find me in app/views/beds/edit.html.erb</p>
+<h1>Edit Bed</h1>
+
+<div class="row">
+  <div class="span8 offset2 new_form">
+    <%= form_for(@bed) do |f| %>
+    <div class="field">
+      <ul>
+        <li><h4>Dates entered will generate a calendar for your field and greenhouse. Only enter the dates that you want to base the schedule around, or enter both plant and harvest to customize. You can edit this later.<h4></li>
+        <li>
+          <%= f.label :bed %>
+          <%= f.text_field :bed %>
+        </li>
+        <li> **All dates in <strong>dd/mm/yyyy</strong> format**</li>
+        <li>
+          <%= f.label :frost_date %>
+          <%= f.text_field :frost_date %>
+        </li>
+        <li>
+          <%= f.label :plant_date %>
+          <%= f.text_field :plant_date %>
+        </li>
+        <li>
+          <%= f.label :harvest %>
+          <%= f.text_field :harvest %>
+        </li>
+        <li>
+          <%= f.label :greenhouse_start %>
+          <%= f.text_field :greenhouse_start %>
+        </li>
+        <li>
+          <%= f.label :greenhouse_end %>
+          <%= f.text_field :greenhouse_end %>
+        </li>
+        
+      <ul>
+    </div>
+    <%= f.submit "Save", class: "btn btn-large btn-primary" %>
+  <% end %>
+  
+  </div>
+
+</div>
