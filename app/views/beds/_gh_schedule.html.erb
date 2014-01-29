@@ -6,7 +6,7 @@
     <th>Crop</th>
     <th>Family</th>
     <th><%= @first_day %></th>
-    <% 150.times do |day| %>
+    <% (@first_day...(@last_day+30)).each do |day| %>
         <% @next ||= @first_day %>
         <th><%= @next = @next += 1 %></th>
     <% end %>
@@ -20,7 +20,7 @@
             <td><%= bed.bed %></td>
             <td><%= @crop.crop %></td> 
             <td><%= @crop.family %></td> 
-            <% 150.times do |day| %>
+            <% (@first_day...(@last_day+30)).each do |day| %>
               <% @next ||= @first_day %>
               <% @next = @next + 1.day %>
               <% if bed.greenhouse_start == @next or bed.greenhouse_end == @next %>
@@ -31,7 +31,7 @@
           
             <% end %>
 
-              <% @next = @first_day - 1.day %>
+          <% @next = @first_day - 1.day %>
 
             
           <tr> 

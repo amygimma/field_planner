@@ -44,6 +44,7 @@ end
    	else
    	@fs = field_starts.sort
     @first_field_day = @fs.first
+    @last_field_day = @fs.last
     @fn = @first_field_day
    	end
   end

@@ -7,9 +7,9 @@
     <th>Family</th>
 
     <th><%= @first_field_day %></th>
-    <% 150.times do |day| %>
-        <% @fnext ||= @first_field_day %>
-        <th><%= @fnext = @fnext += 1 %></th>
+    <% (@first_field_day...(@last_field_day+80)).each do |day| %>
+      <% @fnext ||= @first_field_day %>
+      <th><%= @fnext = @fnext += 1 %></th>
     <% end %>
     <% @fnext = @first_field_day -1.day %>
   </tr>
@@ -22,7 +22,7 @@
           <td><%= bed.bed %></td>
           <td><%= @crop.crop %></td> 
           <td><%= @crop.family %></td> 
-          <% 150.times do |day| %>
+          <% (@first_field_day...(@last_field_day+80)).each do |day| %>
             <% @fnext ||= @first_field_day %>
             <% @fnext = @fnext + 1.day %>
             <% if bed.plant_date == @fnext or bed.harvest == @fnext %>
