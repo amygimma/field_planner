@@ -8,9 +8,15 @@ module BedsHelper
     elsif @bed.frost_date
       @bed.plant_date ||= @bed.frost_date
     end
-      @bed.greenhouse_start  ||= @bed.plant_date - (@crop.greenhouse_time).days
-      @bed.greenhouse_end = @bed.plant_date
-      @bed.harvest ||= @bed.plant_date + (@crop.maturity_time).days
+    @bed.greenhouse_start  ||= @bed.plant_date - (@crop.greenhouse_time).days
+    @bed.greenhouse_end = @bed.plant_date
+    @bed.harvest ||= @bed.plant_date + (@crop.maturity_time).days
+
+    @bed.save
+    if @bed.greenhouse_start == @bed.greenhouse_end
+      @bed.greenhouse_start = nil
+      @bed.greenhouse_end = nil 
+    end
     @bed.save
   end
 
