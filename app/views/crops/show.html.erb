@@ -8,7 +8,7 @@ show crop
     <h3><%= @crop.crop %></h3>
     <p>
       <%= link_to "delete", @crop, method: :delete,
-                                    data: { confirm: "You sure?" } %>
+                                    data: { confirm: "Delete: You sure? Cannot undo a delete." } %>
      
       <%= link_to "Edit", @crop, method: :get %>
     </p>

@@ -24,10 +24,13 @@
               <% @next ||= @first_day %>
               <% @next = @next + 1.day %>
               <% if bed.greenhouse_start == @next or bed.greenhouse_end == @next %>
-                <td><small><%= @crop.crop %></small></td>
+                <td><div class="sch_background crop_label"><%= @crop.crop %></div></td>
+              <% elsif bed.greenhouse_start <= @next and bed.greenhouse_end >= @next %>
+                 <td><div class="sch_background crop_label"><%= bed.bed %></div></td>
               <% else %>
                 <td><%= @dash %></td>
               <% end %>
+
           
             <% end %>
 

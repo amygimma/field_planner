@@ -3,7 +3,6 @@ class CropsController < ApplicationController
   before_filter :authenticate_user!
 
   def show
-    crop_id = params["id"]
     @crop = current_user.crops.find(crop_id) 
     @bed = current_user.beds.new
   end
@@ -12,14 +11,11 @@ class CropsController < ApplicationController
     @user = current_user
     @crop = @user.crops.build(crop_params)
     @crop.save
-    
-    crop_id = params["id"]
-    
+        
     redirect_to crops_path
   end
   
   def update
-    crop_id = params["id"]
     @crop = current_user.crops.find(params[:id])
     @crop.update(crop_params) 
     redirect_to crops_path
@@ -27,7 +23,6 @@ class CropsController < ApplicationController
   
   def destroy
     
-    crop_id = params["id"]
     @crop = Crop.find(crop_id)
     
     Crop.destroy(crop_id)
@@ -46,13 +41,10 @@ class CropsController < ApplicationController
   def new
     @crop = Crop.new
     @crops = current_user.crops.all()
-    @bed = Bed.new
-
   end
   
   def edit
      @user = current_user
-     @crop_id = params["id"]
      @crop = current_user.crops.find(params[:id])
   end
   

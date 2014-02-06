@@ -1,5 +1,6 @@
 class BedsController < ApplicationController
   before_filter :authenticate_user!
+
   include BedsHelper
 
   def show 
@@ -11,16 +12,12 @@ class BedsController < ApplicationController
 
   def create
     crop_id = params["crop_id"]
-    
     @crop = current_user.crops.find(crop_id) 
     @bed = @crop.beds.build(bed_params)
     @bed.save!
-  
     create_gh_dates
     redirect_to bed_path(@bed)
   end
-
- 
 
   def update
     @bed = current_user.beds.find(params[:id])
@@ -31,7 +28,6 @@ class BedsController < ApplicationController
   def destroy
     bed_id = params["id"]
     @bed = current_user.beds.find(bed_id)
-    
     Bed.destroy(@bed)
     
     redirect_to root_path
@@ -40,10 +36,7 @@ class BedsController < ApplicationController
 
   def index
     @beds = current_user.beds.all()
-    @beds ||= []
-    greenhouse_sort
-    @dash = "-"
-    field_sort
+    generate_schedules
   end
 
 
@@ -51,7 +44,6 @@ class BedsController < ApplicationController
   end
 
   def edit
-    @bed = params["id"]
     @bed= current_user.beds.find(params[:id])
   end
   
