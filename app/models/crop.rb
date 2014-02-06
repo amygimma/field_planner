@@ -6,7 +6,7 @@ class Crop < ActiveRecord::Base
   #before_save { unless self.crop= nil self.crop = crop.capitalize }
 	after_initialize :init
 
-    def init
-      self.greenhouse_time  ||= 0  #set greenhouse time to 0 for bed/schedule generation
-    end
+  def init
+    self.greenhouse_time  ||= 0  #set greenhouse time to 0 for bed/schedule generation
+  end
 end
