@@ -115,7 +115,7 @@ footer {
 /* jumbotron */
 
 .jumbotron {
-  background-image: url('hemlock_creek.jpg');
+  background: image_tag("hemlock_creek.jpg");
   height: 30em;
   .container {
     padding-top: 20px;
@@ -181,9 +181,12 @@ footer {
   
   /* form */
   
-  .new_form ul li{
+  .new_form ul {
+    list-style: none;
+    li{
     list-style: none;
     color: white;
+    }
   }
   
   input, text_field {
@@ -210,6 +213,7 @@ footer {
         }
         td {
           padding: 0.5em;
+          background: #00782d;
           color: white;
           text-align: center;
         }
