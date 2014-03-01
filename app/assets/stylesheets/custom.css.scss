@@ -200,7 +200,27 @@ footer {
   
     /* table */
     
-    
+     .bedTable {
+        radius: 5px;
+        thead tr {
+          th {
+          background: $textColor;
+          color: #00782d;
+          padding: 0.5em;
+          border: 2px solid white;
+          }
+        }
+        tbody tr{
+          border: 1px solid $textColor;
+          padding: 0.5em;
+          background: #00782d;
+          color: white;
+          text-align: center;
+        
+      }
+    }
+
+
     table {
       border: 1px solid $textColor;
       radius: 5px;
@@ -210,6 +230,7 @@ footer {
         color: #00782d;
         padding: 0.5em;
         border: 2px solid white;
+
         }
         td {
           padding: 0.5em;
@@ -218,6 +239,11 @@ footer {
           text-align: center;
         }
       }
+    }
+
+     .odds td {
+     background-color: black;
+     opacity: 0.6;
     }
       
   .sch_background {

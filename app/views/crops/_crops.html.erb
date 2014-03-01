@@ -16,29 +16,31 @@
       <li><strong>Notes: </strong><%= crop.notes %></li>
     </ul>
     
-    <div class="bed_table">
+    <div class="bedTable">
       <table border="1">
-        <tr>
-          <th>bed</th>
-          <th>frost</th>
-          <th>greenhouse start</th>
-          <th>greenhouse end</th>
-          <th>plant</th>
-          <th>harvest</th>
-        </tr>
-        
-      <% crop.beds.each do |bed| %>
-        <tr>
-          <td><%= bed.bed %></td>
-          <td><%= bed.frost_date %></td>
-          <td><%= bed.greenhouse_start %></td>
-          <td><%= bed.greenhouse_end %></td>
-          <td><%= bed.plant_date %></td>
-          <td><%= bed.harvest %></td>
-          <td><%= link_to 'Show', bed_path(bed) %></td>
-        </tr> 
-      <% end %>
-          
+        <thead>
+          <tr>
+            <th>bed</th>
+            <th>frost</th>
+            <th>greenhouse start</th>
+            <th>greenhouse end</th>
+            <th>plant</th>
+            <th>harvest</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% crop.beds.each do |bed| %>
+            <tr>
+              <td><%= bed.bed %></td>
+              <td><%= bed.frost_date %></td>
+              <td><%= bed.greenhouse_start %></td>
+              <td><%= bed.greenhouse_end %></td>
+              <td><%= bed.plant_date %></td>
+              <td><%= bed.harvest %></td>
+              <td><%= link_to 'Show', bed_path(bed) %></td>
+            </tr> 
+          <% end %>
+        </tbody>
     </table>
     </div>
     <br />

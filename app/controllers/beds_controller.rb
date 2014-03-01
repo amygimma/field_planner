@@ -36,6 +36,12 @@ class BedsController < ApplicationController
 
   def index
     @beds = current_user.beds.all()
+    #render json: @beds
+    #respond_to do |format|
+      #format.html  index.html.erb
+      #format.xml  { render xml: @users}
+      #format.json { render json: @beds}
+    #end
     generate_schedules
   end
 

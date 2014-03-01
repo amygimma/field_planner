@@ -15,3 +15,17 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+
+$(document).ready(function() {
+	$('.bedTable tbody tr:odd').addClass('odds');
+});
+
+$(document).ready(function() {
+	var start = $('.bedTable tbody tr td:first').text();
+	if (start == "A1") {
+		alert("hit")
+	}
+});
+
+
+
