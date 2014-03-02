@@ -1,4 +1,7 @@
 FieldPlanner::Application.routes.draw do
+  get "calendar/greenhouse"
+  get "calendar/field"
+  get "calendar/dates"
   resources :beds do
     resources :crops
   end

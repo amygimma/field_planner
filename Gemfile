@@ -28,3 +28,4 @@ end
 
 gem 'devise', '3.0'
 gem 'jquery-ui-rails'
+gem 'fullcalendar-rails'
