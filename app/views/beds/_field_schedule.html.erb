@@ -20,7 +20,7 @@
     <% next if bed.plant_date == nil %>
     <% @crop = current_user.crops.find(bed.crop_id) %>
 
-        <tr data-toggle="tooltip" dataplacement="bottom" title="Bed: <%= bed.bed %>, Plant: <%= bed.plant_date %>, Harvest: <%= bed.harvest %>">
+        <tr data-toggle="tooltip" dataplacement="bottom" title="Bed: <%= bed.bed %>, Plant: <%= bed.plant_date.strftime("%m/%d/%Y")%>, Harvest: <%= bed.harvest.strftime("%m/%d/%Y") %>">
           <td><%= bed.bed %></td>
           <td><%= @crop.crop %></td> 
           <td><%= @crop.family %></td> 

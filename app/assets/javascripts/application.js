@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.all
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
@@ -20,12 +21,24 @@ $(document).ready(function() {
 	$('.bedTable tbody tr:odd').addClass('odds');
 });
 
-$(document).ready(function() {
-	var start = $('.bedTable tbody tr td:first').text();
-	if (start == "A1") {
-		alert("hit")
-	}
+$(document).ready(function(){
+	$('.dateField').datepicker();
 });
+
+
+$(document).ready(function(){
+	$('#hideBeds').click(function(){
+		$('#hideBeds').next().hide();
+	});
+});
+
+
+// $(document).ready(function() {
+// 	var start = $('.bedTable tbody tr td:first').text();
+// 	if (start == "A1") {
+// 		alert("hit")
+// 	}
+// });
 
 
 

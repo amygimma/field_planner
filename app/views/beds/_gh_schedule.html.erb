@@ -18,7 +18,7 @@
    <% @beds.each do |bed| %>
       <% next if bed.greenhouse_start == nil %>
       <% @crop = current_user.crops.find(bed.crop_id) %>
-          <tr data-toggle="tooltip" dataplacement="bottom" title="Bed: <%= bed.bed %>, Plant: <%= bed.plant_date %>, Harvest: <%= bed.harvest %>">
+          <tr data-toggle="tooltip" dataplacement="bottom" title="Bed: <%= bed.bed %>, Greenhouse Start: <%= bed.greenhouse_start.strftime("%m/%d/%Y") %>, Greenhouse End: <%= bed.greenhouse_end.strftime("%m/%d/%Y") %>">
             <td><%= bed.bed %></td>
             <td><%= @crop.crop %></td> 
             <td><%= @crop.family %></td> 
