@@ -4,9 +4,14 @@
 	<div id='calendar'></div>
 	
 	<script>
-$.getJSON( '/calendar/dates', function( json ) {
+$.getJSON( '/calendar/field_dates', function( json ) {
 		$('#calendar').fullCalendar({
-			defaultDate: '2014-01-12',
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,agendaWeek,agendaDay'
+			},
+			defaultDate: '2014-05-12',
 			editable: true,
 			events: json
 			});

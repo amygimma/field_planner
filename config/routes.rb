@@ -1,4 +1,11 @@
 FieldPlanner::Application.routes.draw do
+  get "calendar/gh_dates"
+  get "calendar/field_dates"
+  get "calendar/combined"
+  get "calendar/gh_start"
+  get "calendar/gh_end"
+  get "calendar/field_plant"
+  get "calendar/field_harvest"
   get "calendar/greenhouse"
   get "calendar/field"
   get "calendar/dates"

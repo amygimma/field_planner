@@ -1,9 +1,6 @@
 @import "bootstrap";
 
-  #calendar {
-    width: 900px;
-    margin: 40px auto;
-  }
+ 
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
@@ -41,9 +38,7 @@ textarea {
 
 /* typography */
 
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
-}
+
 
 h1 {
   font-size: 3em;
@@ -53,14 +48,7 @@ h1 {
   color: yellow;
 }
 
-h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: $grayLight;
-}
+
 
 h3 {
   color: $textColor;
@@ -273,3 +261,29 @@ footer {
     border-style: solid;  
     border-color: #111;  
 }  
+
+/* calendar */
+
+.fc-event-inner {
+  background: orange;
+}
+
+#calendar {
+  width: 900px;
+  margin: 40px auto;
+}
+
+
+footer ul {
+  list-style-type: none;
+  li:nth-child(2) {
+      padding-right: 40px;
+    }
+  li {
+    color: white;
+    padding-right: 20px;
+    a {
+      color: yellow;
+    }
+    }
+}

@@ -36,6 +36,7 @@ class CropsController < ApplicationController
     @crops = current_user.crops.all()
     @beds = Bed.all()
     redirect_to crops_path if @beds.nil?
+    @bedcrop
   end
   
   def new
