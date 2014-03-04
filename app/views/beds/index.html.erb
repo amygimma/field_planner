@@ -2,8 +2,11 @@
 		<h3>Please add beds to crops create schedules</h3>
 		<%= link_to "<< Back", crops_path, :class => "btn btn-large btn-warning generate" %>
 <% else %>
-	<%= render 'gh_schedule.html.erb' %>
-	<%= render 'field_schedule.html.erb' %>
+	<div class="schedules">
+		<%= render 'gh_schedule.html.erb' %>
+	</div>
+	<div class="schedules">
+	  <%= render 'field_schedule.html.erb' %>
+	</div>
 	
-
 <% end %>

@@ -1,14 +1,11 @@
-show crop
-
-
 
 <div class="row">
   <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 show">
 
     <h3><%= @crop.crop %></h3>
     <p>
-      <%= link_to "delete", @crop, method: :delete,
-                                    data: { confirm: "Delete: You sure? Cannot undo a delete." } %>
+      <%= link_to "Delete", @crop, method: :delete,
+                                    data: { confirm: "Delete: You sure? Cannot undo a delete." } %> |
      
       <%= link_to "Edit", @crop, method: :get %>
     </p>

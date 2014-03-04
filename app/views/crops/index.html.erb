@@ -1,7 +1,9 @@
 <div class="row">
-  <%= link_to "Greenhouse Calendar", calendar_greenhouse_path, :class => "btn btn-small btn-warning generate" %>
-  <%= link_to "Greenhouse Calendar", calendar_field_path, :class => "btn btn-small btn-warning generate" %>
-  <%= link_to "Generate Schedules", beds_path, :class => "btn btn-small btn-warning generate" %>
+  <div class="buttons">
+  <%= link_to "Greenhouse Calendar", calendar_greenhouse_path, :class => "btn btn-warning generate" %>
+  <%= link_to "Field Calendar", calendar_field_path, :class => "btn btn-warning generate" %>
+  <%= link_to "Generate Schedules", beds_path, :class => "btn btn-warning generate" %>
+  </div>  
   <div class="col-xs-12 col-sm-6 col-md-4 pull-left new_form_crops">
   <h3> Add a Crop</h3>
   <%= form_for(@crop) do |f| %>

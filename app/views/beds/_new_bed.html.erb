@@ -1,15 +1,14 @@
-new_bed partial
 <h1>Add bed to crop</h1>
 
 <div class="row">
-  <div class="col-xs-12 col-sm-6 col-md-4 center new_form">
+  <div class="col-xs-12 col-sm-6 col-md-4 center new_form width">
   <h3> Add Beds</h3>
 <%= form_for @bed, as: :bed, url: beds_path(@bed), method: :post do |f| %>
 
 
     <div class="field">
       <ul>
-        <li><h4>Dates entered will generate a calendar for your field and greenhouse. Only enter the dates that you want to base the schedule around, or enter both plant and harvest to customize. You can edit this later.<h4></li>
+        <li><h4>Enter one or more dates to generate schedule<h4></li>
         <li>
           <%= f.label :bed %>
           <%= f.text_field :bed %>

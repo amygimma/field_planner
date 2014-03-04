@@ -99,7 +99,6 @@ footer {
     list-style: none;
     li {
       float: left;
-      margin-left: 10px;
     }
   }
 }
@@ -170,15 +169,30 @@ footer {
     }
   }
   
-  
+  .buttons {
+    padding-left: 33%;
+  }
   /* form */
   
-  .new_form ul {
+
+  .field ul {
     list-style: none;
-    li{
+  }
+
+  .field ul li label {
     list-style: none;
     color: white;
+  }
+
+  .field ul li {
+    color: yellow;
+    h4 {
+    color: yellow;
     }
+  }
+  .width {
+    width: 400px;
+    margin-left: 28%;
   }
   
   input, text_field {
@@ -186,6 +200,9 @@ footer {
     
   }
   
+  input {
+  height: auto !important;
+  }
   input {
   height: auto !important;
   }
@@ -271,11 +288,15 @@ footer {
 #calendar {
   width: 900px;
   margin: 40px auto;
+  
 }
 
+#calendar .fc-header {
+    border: none;
+  }
 
 footer ul {
-  list-style-type: none;
+  list-style: none;
   li:nth-child(2) {
       padding-right: 40px;
     }
@@ -286,4 +307,8 @@ footer ul {
       color: yellow;
     }
     }
+}
+
+.schedules {
+  padding: 30px 0;
 }
