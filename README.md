@@ -1,4 +1,4 @@
-Podcast Hub
+Field Planner
   ===========
  -
   Demo:
@@ -6,23 +6,24 @@ Podcast Hub
  +---------
   
   Check out the live demo on Heroku:
- -  [Demo](http://floating-woodland-5123.herokuapp.com/)
- +  [Demo](http://floating-woodland-5123.herokuapp.com/)  
+ -  [Demo](http://infinite-journey-3023.herokuapp.com//)
+ +  [Demo](http://infinite-journey-3023.herokuapp.com/) 
+ + sign in using demo@fieldplanner.com, password: 12345678 for prepopulated planner
   
- + The **GUEST MODE** button logs you into an established account.
   Summary:
  -________
  +------------
- +  Finding new podcasts is hard.  This app is designed to help you discover new ones.  As users interact with the site data is gather and aggregated to highlight popular podcasts.
+ +  Every year farmers plan their crop schedules based on time in the greenhouse and time in the field, and plan around preferred planting date, first available planting date (after reasonable threat of frost), or harvest date. Field planner eliminates the need to count out days, and after creating a crop profile, the dates can be generated around one date, or customized further. A greenhouse calendar, field calendar and date vs space schedules are generated.
+ +
+
  +###Users Can:
- + * Add URL's for new RSS feeds
- + * Subscribe to Podcasts
- + * Rate Podcasts
- + * Tag Podcasts
- + * Listen to Episodes
+ + * Add specific crops with family names and notes for reference
+ + * Generate calendars
+ + * Edit dates to reflect changes
+
  +
  +
- +###Podcasts Are Ordered:
+ +###Future Features:
  + * Most Subscribed to Podcasts
  + * Most Listened to Podcasts
  + * Most Used Tags
@@ -31,18 +32,14 @@ Podcast Hub
   Notes:
  -______
  +-------
- + * Ruby on Rails 3.2
- + * Audio Streaming using the HTML 5 &lt;audio> tag
- + * AJAX to record when users listen to podcasts
+ + * Ruby on Rails 4
+ + * JSON info available for extended use
+ + * Full Calendar jQuery gem
  + * User authentication with [Devise](https://github.com/plataformatec/devise)
- + * RSS feed reading/parsing with [simple-rss](https://github.com/cardmagic/simple-rss)
- + * Pagination with [kaminari](https://github.com/amatsuda/kaminari)
  +
  +Feedback:
  +-----------
  +If you have any sugestions or would like to know more shoot me an email
- +[my firstname]@[my lastname].com
+ +amyg225@gmail.com with subject FIELD PLANNER
   
- -* User authenticaion with [Devise](https://github.com/plataformatec/devise)
- -* RSS feed reading/parsing with [simple-rss](https://github.com/cardmagic/simple-rss)
- +~Ryan Malecky
+
