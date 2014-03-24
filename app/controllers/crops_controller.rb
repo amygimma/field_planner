@@ -4,7 +4,7 @@ class CropsController < ApplicationController
 
   def show
     @crop = current_user.crops.find(crop_id) 
-    @bed = current_user.beds.new
+    @bed = Bed.new
   end
   
   def create

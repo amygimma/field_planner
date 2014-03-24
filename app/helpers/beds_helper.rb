@@ -6,24 +6,7 @@ module BedsHelper
     field_sort
   end
 
-  def create_gh_dates
-    crop_id = params["crop_id"]
-    @crop = current_user.crops.find(crop_id) 
-    if @bed.harvest
-      @bed.plant_date ||= @bed.harvest - (@crop.maturity_time).days
-    elsif @bed.frost_date
-      @bed.plant_date ||= @bed.frost_date
-    end
-    @bed.greenhouse_start  ||= @bed.plant_date - (@crop.greenhouse_time).days
-    @bed.greenhouse_end = @bed.plant_date
-    @bed.harvest ||= @bed.plant_date + (@crop.maturity_time).days
-    @bed.save
-    if @bed.greenhouse_start == @bed.greenhouse_end
-      @bed.greenhouse_start = nil
-      @bed.greenhouse_end = nil 
-    end
-    @bed.save
-  end
+ 
 
   def greenhouse_sort
     if @beds == []

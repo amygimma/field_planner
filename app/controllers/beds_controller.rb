@@ -12,11 +12,11 @@ class BedsController < ApplicationController
 
   def create
     crop_id = params["crop_id"]
-    @crop = current_user.crops.find(crop_id) 
-    @bed = @crop.beds.build(bed_params)
-    @bed.save!
-    create_gh_dates
-    redirect_to bed_path(@bed)
+    crop = current_user.crops.find(crop_id) 
+    bed = crop.beds.build(bed_params)
+    bed.save!
+    bed.create_gh_dates
+    redirect_to bed_path(bed)
   end
 
   def update
