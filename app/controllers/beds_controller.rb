@@ -1,7 +1,8 @@
 class BedsController < ApplicationController
-  before_filter :authenticate_user!
 
+  # planning to make a new dashboard controller to clean this up!
   include BedsHelper
+  before_filter :authenticate_user!
 
   def show 
     bed_id = params["id"]
@@ -14,8 +15,10 @@ class BedsController < ApplicationController
     crop_id = params["crop_id"]
     crop = current_user.crops.find(crop_id) 
     bed = crop.beds.build(bed_params)
-    bed.save!
-    bed.create_gh_dates
+   
+   
+    bed.create_dates
+    
     redirect_to bed_path(bed)
   end
 

@@ -1,4 +1,6 @@
 module BedsHelper
+
+  #most of this will go in the model soon
   def generate_schedules
     @beds ||= []
     greenhouse_sort
@@ -6,7 +8,7 @@ module BedsHelper
     field_sort
   end
 
- 
+
 
   def greenhouse_sort
     if @beds == []
